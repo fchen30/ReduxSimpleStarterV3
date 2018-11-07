@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import SearchBar from '../container/search_bar';
 
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+        <SearchBar/>
     );
   }
 }
+
+// npm install --save axios
+// npm install --save redux-promise
