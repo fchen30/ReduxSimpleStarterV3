@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 //      parent       child
 import {Sparklines, SparklinesLine} from 'react-sparklines';
 import Chart from '../components/chart';
+import GoogleMap from '../components/google_map';
 
 class WeatherList extends Component {
     renderWeather(cityData) {
@@ -11,12 +12,18 @@ class WeatherList extends Component {
         //const temperatures = cityData.list.map(weather => weather.main.temp - 273); works as well
         const pressure = cityData.list.map(weather => weather.main.pressure);
         const humidity = cityData.list.map(weather => weather.main.humidity);
-        console.log(temperatures);
+        const lon = cityData.city.coord.lon;
+        const lat = cityData.city.coord.lat;
+        //const {lon, lat} = cityData.city.coord;
+        console.log(lon);
+        console.log(lat);
         return (
             // add key to the top level element of a list
             // height and width in pixel values
             <tr key = {cityData.city.name}>
-                <td>{cityData.city.name}</td>
+                <td>
+                    <GoogleMap lon = {lon} lat = {lat} />
+                </td>
                 <td>
                    <Chart data = {temperatures} color = "red" units = " C"/>
                 </td>

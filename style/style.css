@@ -10,3 +10,9 @@ td, th {
 svg{
     height: 150px;
 }
+
+td:first-of-type, td:first-of-type > div {
+    height: 200px;
+    width: 250px;
+}
+/* find the first td inside each row, and the first dive inside the td */
